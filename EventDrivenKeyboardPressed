@@ -1,0 +1,78 @@
+import keyboard
+
+print("Hello world")
+
+    
+Dialogue=[["Dialogue 1"," 1:1","1:2","1:3"],["Dialogue 2","2:1","2:2","2:3"],["Dialogue 3","3:1","3:2","3:3"]]
+
+Blank=["Blank"]
+##Variables
+print("hh")
+
+Dialogue=Dialogue
+
+
+Was_Pressed=False
+key_pressed=0
+Dialogue_State="NextDialogue"
+Dialogue_List=0
+Next_List=1
+
+def Dialogue_Button_Pressed(event):
+    global key_pressed
+    global Dialogue
+    global DialogueLength
+    global Dialogue_State
+    global Dialogue_List
+    if event.name == 'enter':
+        if key_pressed== range(DialogueLength)-1:
+            key_pressed=key_pressed+1
+            print(Dialogue[Dialogue_List][key_pressed])
+            if DialogueLength-1>=key_pressed:
+                
+                if Dialogue_State=="NextDialogue":
+                    if DialogueLength<=key_pressed:
+                        Dialogue_List=Dialogue_List+1
+                        key_pressed=0
+
+
+
+                
+                
+                
+                                       
+            elif Dialogue_State=="Waiting":
+                Dialogue_List=Dialogue_List
+            
+        
+            
+
+            
+                
+        
+def Transfer():
+    global key_pressed
+    global Dialogue
+    global DialogueLength
+    global Dialogue_State
+    global Dialogue_List
+    key_pressed=0
+    print("STOP")
+    Dialogue_List=Dialogue_List+1
+    Dialogue_State="NextDiaogue"
+
+
+    
+
+
+keyboard.on_press(Dialogue_Button_Pressed)
+while True:
+    DialogueLength=len(Dialogue[Dialogue_List])
+    pass
+
+
+
+
+
+
+
